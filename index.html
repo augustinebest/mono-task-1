@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Mono Connect test</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/javascript" src="https://connect.withmono.com/connect.js"></script>
+</head>
+
+<body>
+    <!-- <div className="p-5">
+      <p>Welcome to Mono Connect.</p>
+      <button id="launch-btn">Launch mono connect</button>
+    </div> -->
+    <div class="body_frame">
+        <div class="div_form">
+            <div class="img_div"><img src='assets/logo2.png' /></div>
+            <form>
+                <input type="text" id="email" placeholder="email" required>
+                <input type="text" id="amount" placeholder="amount" required>
+                <input id="launch-btn" type="submit" value="proceed">
+            </form>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+        const email = document.getElementById('email');
+        const amount = document.getElementById('amount');
+        var options = {
+            onSuccess: function (response) {
+                const save = {
+                    code: response.code,
+                    amount: amount.value
+                }
+                window.location.href = 'dashboard.html'
+                localStorage.setItem('_details', JSON.stringify(save))
+            },
+
+            onClose: function () {
+                alert('user closed the widget.')
+            }
+        };
+
+        var connect = new Connect("test_pk_79uYoOp20Y8eLfxkqQMb", options);
+        connect.setup();
+
+        var launch = document.getElementById('launch-btn');
+
+
+        launch.onclick = function (e) {
+            e.preventDefault()
+            if (email.value == '' || amount.value == '') {
+                alert('fields are required')
+            } else {
+                connect.open()
+            };
+        }
+    </script>
+</body>
+
+</html>

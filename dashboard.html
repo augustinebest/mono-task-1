@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mono - Dashboard</title>
+</head>
+
+<body>
+    <div class="dashboard_frame">
+        <div class="image_div"><img class="img_div_2" src="assets/logo2.png" /></div>
+        <div class="dashboard__">
+            <div>
+                <div>Account Balance</div>
+                <div class="amount mt-2">NGN <span id='balance'></span></div>
+                <div class="mt-2">withdrawal amount: <span class="with_">NGN <span id='amount'></span></span></div>
+            </div>
+            <div class="details_">
+                <div>#<span id="accountID"></span></div>
+                <div><i class="fas fa-user mt-2 mr-3"></i><span id="name"></span></div>
+                <div class="mt-2">balance after withdrawal: <span class="ba__">NGN <span id="ba"></span></span></div>
+                <div class="div_s">
+                    <div onclick="logout()" class="signout_div"><i class="fa fa-sign-out-alt smm"></i><span
+                            class="signout">LOGOUT</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cont_div">
+        <div class="debcre">
+            <div class="navbar_">debits</div>
+            <div class="content_div" id="list_d">
+                
+            </div>
+        </div>
+        <div class="debcre dy_">
+            <div class="navbar_">credits</div>
+            <div class="content_div" id="list_c">
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const logout = () => {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
